@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # prueba-tecnica-ips
 =======
 # IPS Analytics — Prueba técnica Ingeniero de Datos
@@ -18,7 +18,6 @@ Solución analítica end-to-end para integrar **pacientes**, **citas**, **evento
 | 6 — Power BI | Pendiente | Dashboard |
 | 7 — CI/CD y defensa | Pendiente | Pipeline GitHub, guion |
 
-Plan detallado: [PLAN_DESARROLLO.md](./PLAN_DESARROLLO.md).
 
 ## Requisitos
 
@@ -175,8 +174,3 @@ Widgets: `load_mode=full`, Excel en `/Volumes/ips_analytics/raw/raw_data/`, `rep
 | Silver | `ips_analytics.silver` | `pacientes` |
 | Gold | `ips_analytics.gold` | `fact_facturacion` |
 | Operaciones | `ips_analytics.ops` | watermarks, logs |
-
-## Licencia y uso
-
-Proyecto académico / prueba técnica. No commitear datos personales reales en Git.
->>>>>>> c526654 (IPS Analytics: pipeline medallion Databricks)

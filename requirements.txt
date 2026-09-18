@@ -1,0 +1,7 @@
+openpyxl>=3.1.0
+pandas>=2.0.0,<3.0.0
+
+# Ejecución local E2E (scripts/run_local_e2e.py; usar py -3.12):
+pyspark==3.5.4
+delta-spark==3.2.1
+pytest>=8.0

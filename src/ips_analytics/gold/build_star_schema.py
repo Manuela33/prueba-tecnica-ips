@@ -10,7 +10,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
 from ips_analytics.bronze.ingest_excel import log_pipeline_run
-from ips_analytics.config import DEFAULT_CONFIG, LakehouseConfig, full_table_name  # noqa: F401
+from ips_analytics.config import DEFAULT_CONFIG, LakehouseConfig, full_table_name  
 
 
 def _silver(spark: SparkSession, config: LakehouseConfig, name: str) -> DataFrame:

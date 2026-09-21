@@ -23,10 +23,10 @@ class LakehouseConfig:
 
 DEFAULT_CONFIG = LakehouseConfig()
 
-# Ejecución local (PySpark sin Unity Catalog): tablas `bronze.pacientes`, etc.
+
 LOCAL_SPARK_CONFIG = LakehouseConfig(catalog="__local__")
 
-# Entidades Excel → tabla Bronze (columnas de negocio en data_contracts.md)
+
 BRONZE_SOURCES: tuple[dict[str, str], ...] = (
     {
         "entity": "pacientes",

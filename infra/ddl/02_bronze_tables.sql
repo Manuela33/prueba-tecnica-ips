@@ -1,11 +1,4 @@
--- =============================================================================
 -- IPS Analytics — Bronze (Fase 2)
--- Nota: el notebook 01_bronze_ingesta crea/actualiza tablas vía saveAsTable.
--- Este script documenta el contrato y permite crear esquemas vacíos opcionales.
--- Prerrequisito: 00_create_catalog_schema.sql
--- =============================================================================
-
--- Tablas principales: columnas de negocio STRING + metadatos (ver data_contracts.md)
 
 CREATE TABLE IF NOT EXISTS ips_analytics.bronze.pacientes (
   id_paciente      STRING,

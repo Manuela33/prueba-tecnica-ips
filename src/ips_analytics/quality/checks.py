@@ -38,7 +38,6 @@ def run_silver_quality_checks(
 
     for table, exp in expected.items():
         n = _table(spark, config, "silver", table).count()
-        # Pacientes: 1 reject posible por fecha → 222 silver
         low = exp - 2 if table == "pacientes" else exp
         passed = low <= n <= exp
         results.append(

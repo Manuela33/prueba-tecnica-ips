@@ -1,7 +1,5 @@
--- =============================================================================
 -- IPS Analytics — Vistas KPI Gold (Fase 4)
 -- Ejecutar tras 03_gold_model.ipynb o vía create_kpi_views en PySpark.
--- =============================================================================
 
 USE CATALOG ips_analytics;
 USE SCHEMA gold;
@@ -99,15 +97,3 @@ SELECT
   edad_anios
 FROM ips_analytics.gold.dim_paciente;
 
--- =============================================================================
--- Ejemplos KPI (< 10 líneas cada uno)
--- =============================================================================
-
--- Ingreso neto por mes (2026)
--- SELECT anio, mes, ingreso_neto FROM v_kpi_resumen_ips WHERE anio = 2026 ORDER BY mes;
-
--- Top especialidades por volumen de citas
--- SELECT especialidad, SUM(total_citas) AS citas FROM v_kpi_operacion_citas GROUP BY especialidad ORDER BY citas DESC LIMIT 5;
-
--- Cartera pendiente total
--- SELECT ROUND(SUM(cartera_pendiente), 2) FROM v_kpi_facturacion_mensual;

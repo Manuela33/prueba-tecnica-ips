@@ -1,8 +1,6 @@
--- =============================================================================
 -- IPS Analytics — Gold (Fase 4)
 -- Tablas materializadas por notebooks/03_gold_model.ipynb (saveAsTable).
 -- Vistas KPI: sql/gold/kpi_queries.sql o create_kpi_views().
--- =============================================================================
 
 -- Dimensiones: dim_tiempo, dim_paciente, dim_especialidad, dim_sede,
 --   dim_tipo_servicio, dim_pagador, dim_tipo_evento

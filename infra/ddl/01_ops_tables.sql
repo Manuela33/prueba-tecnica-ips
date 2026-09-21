@@ -1,7 +1,5 @@
--- =============================================================================
 -- IPS Analytics — Tablas operacionales (Fase 1 diseño / Fase 5 implementación)
--- Prerrequisito: 00_create_catalog_schema.sql (esquema ops)
--- =============================================================================
+
 
 CREATE TABLE IF NOT EXISTS ips_analytics.ops.ingestion_watermark (
   source_table     STRING    NOT NULL COMMENT 'Ej: pacientes, citas, eventos_clinicos, facturacion',
@@ -38,7 +36,3 @@ CREATE TABLE IF NOT EXISTS ips_analytics.ops.data_quality_results (
 )
 USING DELTA
 COMMENT 'Resultados de checks de calidad por corrida';
-
--- Seed watermarks (opcional, post primera carga Silver):
--- INSERT INTO ips_analytics.ops.ingestion_watermark (source_table, watermark_column, last_watermark)
--- VALUES ('pacientes', 'actualizado_en', TIMESTAMP '1970-01-01 00:00:00');

@@ -1,6 +1,3 @@
-
-# prueba-tecnica-ips
-=======
 # IPS Analytics — Prueba técnica Ingeniero de Datos
 
 Solución analítica end-to-end para integrar **pacientes**, **citas**, **eventos clínicos** y **facturación** de una IPS, usando arquitectura **medallión** (Bronze → Silver → Gold) en **Databricks**, **PySpark/SQL**, **Git** y **Power BI**.
@@ -14,7 +11,7 @@ Solución analítica end-to-end para integrar **pacientes**, **citas**, **evento
 | **2 — Bronze** | Completada (ejecutar en Databricks) | `01_bronze_ingesta.ipynb`, `src/ips_analytics/bronze/` |
 | **3 — Silver** | Completada (ejecutar en Databricks) | `02_silver_transform.ipynb`, `04_data_quality.ipynb`, `sql/silver/` |
 | **4 — Gold** | Completada (ejecutar en Databricks) | `03_gold_model.ipynb`, `sql/gold/kpi_queries.sql` |
-| **5 — Calidad / incremental** | Completada (ejecutar en Databricks) | `99_orchestration.ipynb`, watermarks, CI pytest |
+| **5 — Calidad / incremental** | Completada (ejecutar en Databricks) | `99_orchestration.ipynb`, watermarks |
 | 6 — Power BI | Pendiente | Dashboard |
 | 7 — CI/CD y defensa | Pendiente | Pipeline GitHub, guion |
 
@@ -55,8 +52,6 @@ Alternativa CLI (con Databricks CLI configurado):
 databricks fs cp pacientes.xlsx dbfs:/Volumes/ips_analytics/raw/raw_data/pacientes.xlsx
 ```
 
-Ver también [data/README.md](./data/README.md).
-
 ### 4. Exploración de datos
 
 ```text
@@ -80,8 +75,6 @@ Widgets:
 | `batch_id` | Vacío (auto) o fijo para reproceso |
 | `load_mode` | `full` |
 
-Tests locales (PK en Excel): `python -m pytest src/tests/test_bronze_read.py`
-
 ### 4c. Transformación Silver (Fase 3)
 
 Tras Bronze:
@@ -93,7 +86,7 @@ notebooks/04_data_quality.ipynb
 
 Conteos esperados Silver: pacientes **222** (1 reject por fecha), citas **1001**, eventos **1602**, facturación **1202**.
 
-SQL de referencia: `sql/silver/`. Tests: `python -m pytest src/tests/`
+SQL de referencia: `sql/silver/`.
 
 ### 4d. Modelo Gold (Fase 4)
 
@@ -122,29 +115,11 @@ Widgets: `load_mode` (`full` | `incremental`), `run_gold`, `fail_on_quality`.
 
 Documentación incremental: [docs/incrementalidad.md](./docs/incrementalidad.md).
 
-CI local/GitHub: `python -m pytest src/tests` (workflow `.github/workflows/ci.yml`).
-
 ### 5. Tablas operacionales (opcional hasta Fase 5)
 
 ```text
 infra/ddl/01_ops_tables.sql
 ```
-
-### 5b. Validación local (antes de Power BI)
-
-Con los Excel en la raíz del repo (no versionados en Git):
-
-```powershell
-.\scripts\run_all_validation.ps1
-```
-
-Equivale a: **pytest** → **reglas E2E en pandas** → **PySpark local opcional**. Si el worker de Python/Spark falla en Windows, la validación sigue siendo válida con pandas + pytest; el pipeline completo con Delta debe correrse en Databricks:
-
-```text
-notebooks/99_orchestration.ipynb
-```
-
-Widgets: `load_mode=full`, Excel en `/Volumes/ips_analytics/raw/raw_data/`, `repo_root` apuntando al Repo.
 
 ### 6. Documentación de diseño
 
@@ -160,8 +135,8 @@ Widgets: `load_mode=full`, Excel en `/Volumes/ips_analytics/raw/raw_data/`, `rep
 ├── docs/                 # Arquitectura, supuestos (Fase 0+)
 ├── infra/ddl/            # Scripts SQL Unity Catalog
 ├── notebooks/            # Pipelines Databricks
-├── data/                 # Instrucciones de datos (sin xlsx en Git)
-├── PLAN_DESARROLLO.md
+├── sql/                  # SQL Silver y Gold de referencia
+├── src/                  # Código PySpark (ips_analytics)
 └── README.md
 ```
 

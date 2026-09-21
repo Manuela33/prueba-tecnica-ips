@@ -1,7 +1,5 @@
--- =============================================================================
 -- IPS Analytics — Silver (Fase 3)
 -- Las tablas productivas se materializan con saveAsTable desde PySpark.
--- =============================================================================
 
 -- Rejects unificados (append por corrida desde pipeline Python)
 -- CREATE via init_rejects_table / mergeSchema en append

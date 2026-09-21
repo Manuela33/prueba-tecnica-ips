@@ -1,9 +1,5 @@
--- =============================================================================
 -- IPS Analytics — Unity Catalog (Fase 0)
--- Ejecutar en Databricks SQL o notebook %sql con permisos CREATE CATALOG.
--- Free Edition: si CREATE CATALOG falla, usar catálogo existente (p. ej. workspace)
--- y adaptar nombres según docs/arquitectura.md sección "Entorno Free Edition".
--- =============================================================================
+
 
 CREATE CATALOG IF NOT EXISTS ips_analytics
 COMMENT 'Lakehouse analítico IPS — prueba técnica';
@@ -29,8 +25,4 @@ COMMENT 'Modelo dimensional y vistas KPI para BI';
 CREATE SCHEMA IF NOT EXISTS ips_analytics.ops
 COMMENT 'Control de ingestas, calidad y orquestación';
 
--- Permisos sugeridos (ajustar grupos a tu workspace)
--- GRANT USE CATALOG ON CATALOG ips_analytics TO `data-engineers`;
--- GRANT USE CATALOG ON CATALOG ips_analytics TO `data-analysts`;
--- GRANT ALL PRIVILEGES ON SCHEMA ips_analytics.bronze TO `data-engineers`;
--- GRANT SELECT ON SCHEMA ips_analytics.gold TO `data-analysts`;
+

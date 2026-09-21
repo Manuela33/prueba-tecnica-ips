@@ -12,8 +12,7 @@ Solución analítica end-to-end para integrar **pacientes**, **citas**, **evento
 | **3 — Silver** | Completada (ejecutar en Databricks) | `02_silver_transform.ipynb`, `04_data_quality.ipynb`, `sql/silver/` |
 | **4 — Gold** | Completada (ejecutar en Databricks) | `03_gold_model.ipynb`, `sql/gold/kpi_queries.sql` |
 | **5 — Calidad / incremental** | Completada (ejecutar en Databricks) | `99_orchestration.ipynb`, watermarks |
-| 6 — Power BI | Pendiente | Dashboard |
-| 7 — CI/CD y defensa | Pendiente | Pipeline GitHub, guion |
+| 6 — Power BI | Completada | Dashboard |
 
 
 ## Requisitos
